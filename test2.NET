@@ -1,0 +1,35 @@
+*Spice netlist for Circuit: E:\Digital Logic Design\Practical of Digital Logic Design\Note Book Experiment\test2.CKT
+VDVCC 19 0 DC 5
+* BEGIN Adding ADC and/or DAC
+A1 [21 23 25 27 29 30 32 34] [V4_3 U1A_5 U1B_9 U2A_5 U2B_9 V3_1 V2_1 V1_1] dac_mod
+A2 [0 V4_3 U1A_5 U1B_9 U2A_5 V3_1 V2_1 V1_1 19] [20 22 24 26 28 31 33 35 37] adc_mod
+A3 [36] [19] dac_mod
+.model dac_mod xdac
+.model adc_mod xadc
+* END adding ADC and/or DAC
+
+*0=0V 1=5V
+V3 V3_1 0 DC 5V
+*0=0V 1=5V
+V2 V2_1 0 DC 0V
+*0=0V 1=5V
+V1 V1_1 0 DC 0V
+V5 V5_1 0 DC 10V
+RL5 U2B_9 0 100MEG
+RL4 U2A_5 0 100MEG
+RL3 U1B_9 0 100MEG
+RL2 U1A_5 0 100MEG
+RL1 V4_3 0 100MEG
+AU2B [37 20 33 31 28 31 35][36 32 30 27 30 34 U2B_7 29] A74112
+AU2A [37 20 33 31 26 31 35][36 32 30 25 30 34 U2A_6 27] A74112
+AU1B [37 20 33 31 24 31 35][36 32 30 23 30 34 U1B_7 25] A74112
+AU1A [37 20 33 31 22 31 35][36 32 30 21 30 34 U1A_6 23] A74112
+.SAVE V4_3 V5_1 U1A_5 U1B_9 U2A_5 U2B_9 V3_1 V2_1 V1_1 @v3[p] v3#branch @v2[p]
+.SAVE v2#branch @v1[p] v1#branch @v5[p] v5#branch
+
+* Selected Circuit Analyses :
+.OP
+
+* Models/Subcircuits Used:
+* (.MODEL  A74112 is not in the selected model file: C:\Program Files\CircuitMaker 2000\MODELS\74112.MOD)
+.END
